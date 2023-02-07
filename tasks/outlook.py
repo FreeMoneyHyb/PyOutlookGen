@@ -40,7 +40,7 @@ class OutlookAccount(object):
         self.password = "".join(random.choices(string.ascii_letters + string.digits, k=16))
         self.first_name = random_alphabetic_string(16)
         self.last_name = random_alphabetic_string(8)
-        self.email = f"{self.first_name}{self.last_name}@{config.get('domain')}".lower()
+        self.email = f"FreeMoneyHubLOL_{self.last_name}@{config.get('domain')}"
         self.birthday = self._get_birthday()
         self.key = None
         self.ski = None
