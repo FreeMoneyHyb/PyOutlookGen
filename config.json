@@ -3,5 +3,6 @@
   "domain": "outlook.com",
   "proxy-type": "http",
   "threads": 200,
-  "processes": 3
+  "processes": 3,
+  "webhook": "your webhook"
 }
