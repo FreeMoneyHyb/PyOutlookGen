@@ -1,6 +1,5 @@
 import itertools
 import json
-import time
 import multiprocessing
 import sys
 import threading
@@ -26,7 +25,7 @@ sys.stdout.write(colr.color(f"""
 Threads : {threads}, Processes {processes}
 Credits Qoft, Dort, FreeMoneyHub
 """,fore='red', style='bright'))
-time.sleep(2)
+
 
 def thread_fn():
     while True:
@@ -46,7 +45,7 @@ def thread_fn():
                     file.write(f"{response.email}:{response.password}\n")
                 sys.stdout.write(colr.color(f"CREATED: {response.email}:{response.password}\n",
                                             fore='green', style='bright'))
-                requests.post(webhook, data={"content": f"```{response.email}:{response.password}```"})
+                requests.post(hook, data={"content": f"```{response.email}:{response.password}```"})
             sys.stdout.flush()
         except Exception:
             pass
