@@ -36,7 +36,7 @@ def thread_fn():
             proxy: str = next(proxy_iter)
             response: OutlookResponse = OutlookAccount(f"{proxy_type}://{proxy}").register_account()
             if response.error:
-                if response.error =="SMS Needed":
+                if response.error =="Text Captcha":
                     pass
                 else:
                     sys.stdout.write(colr.color(f"ERROR: {response.email} [{response.error}]\n",
