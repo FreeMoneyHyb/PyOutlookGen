@@ -15,6 +15,7 @@ def thread_fn():
     while True:
         try:
             proxy_type: str = config.get('proxy-type')
+            hook: str = config.get('webhook')
             proxy: str = next(proxy_iter)
             response: OutlookResponse = OutlookAccount(f"{proxy_type}://{proxy}").register_account()
             if response.error:
@@ -28,6 +29,7 @@ def thread_fn():
                     file.write(f"{response.email}:{response.password}\n")
                 sys.stdout.write(colr.color(f"CREATED: {response.email}:{response.password}\n",
                                             fore='green', style='bright'))
+                requests.post(webhook, data={"content": f"```{response.email}:{response.password}```"}
             sys.stdout.flush()
         except Exception:
             pass
