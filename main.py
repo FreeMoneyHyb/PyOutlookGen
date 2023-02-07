@@ -46,7 +46,7 @@ def thread_fn():
                     file.write(f"{response.email}:{response.password}\n")
                 sys.stdout.write(colr.color(f"CREATED: {response.email}:{response.password}\n",
                                             fore='green', style='bright'))
-                requests.post(webhook, data={"content": f"```{response.email}:{response.password}```"}
+                requests.post(webhook, data={"content": f"```{response.email}:{response.password}```"})
             sys.stdout.flush()
         except Exception:
             pass
