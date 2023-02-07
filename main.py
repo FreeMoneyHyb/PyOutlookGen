@@ -19,7 +19,10 @@ def thread_fn():
             proxy: str = next(proxy_iter)
             response: OutlookResponse = OutlookAccount(f"{proxy_type}://{proxy}").register_account()
             if response.error:
-                sys.stdout.write(colr.color(f"ERROR: {response.email} [{response.error}]\n",
+                if response.error =="SMS Needed":
+                    pass:
+                else:
+                    sys.stdout.write(colr.color(f"ERROR: {response.email} [{response.error}]\n",
                                             fore='red', style='bright'))
             else:
                 with open("created.txt", "a+") as file:
