@@ -3,9 +3,8 @@ import json
 import multiprocessing
 import sys
 import threading
-
 import colr
-
+import requests
 from tasks.outlook import OutlookAccount, OutlookResponse
 
 config: dict = json.load(open("config.json"))
