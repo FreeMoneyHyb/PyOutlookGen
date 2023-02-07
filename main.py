@@ -9,7 +9,21 @@ from tasks.outlook import OutlookAccount, OutlookResponse
 
 config: dict = json.load(open("config.json"))
 proxy_iter: iter = itertools.cycle(open("proxies.txt", 'r').read().splitlines())
-
+    
+sys.stdout.write(colr.color("""
+▓█████▄  ▒█████   ██▀███  ▄▄▄█████▓     ▄████ ▓█████  ███▄    █ 
+▒██▀ ██▌▒██▒  ██▒▓██ ▒ ██▒▓  ██▒ ▓▒    ██▒ ▀█▒▓█   ▀  ██ ▀█   █ 
+░██   █▌▒██░  ██▒▓██ ░▄█ ▒▒ ▓██░ ▒░   ▒██░▄▄▄░▒███   ▓██  ▀█ ██▒
+░▓█▄   ▌▒██   ██░▒██▀▀█▄  ░ ▓██▓ ░    ░▓█  ██▓▒▓█  ▄ ▓██▒  ▐▌██▒
+░▒████▓ ░ ████▓▒░░██▓ ▒██▒  ▒██▒ ░    ░▒▓███▀▒░▒████▒▒██░   ▓██░
+ ▒▒▓  ▒ ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░  ▒ ░░       ░▒   ▒ ░░ ▒░ ░░ ▒░   ▒ ▒ 
+ ░ ▒  ▒   ░ ▒ ▒░   ░▒ ░ ▒░    ░         ░   ░  ░ ░  ░░ ░░   ░ ▒░
+ ░ ░  ░ ░ ░ ░ ▒    ░░   ░   ░         ░ ░   ░    ░      ░   ░ ░ 
+   ░        ░ ░     ░                       ░    ░  ░         ░ 
+ ░ 
+ 
+Credits Qoft, Dort ,FreeMoneyHub
+""",fore='red', style='bright'))
 
 def thread_fn():
     while True:
