@@ -5,3 +5,5 @@ colr~=0.9.1
 pycryptodome
 pyexecjs
 brotli
+requests
+time
