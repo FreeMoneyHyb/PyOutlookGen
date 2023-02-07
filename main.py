@@ -37,7 +37,7 @@ def thread_fn():
             response: OutlookResponse = OutlookAccount(f"{proxy_type}://{proxy}").register_account()
             if response.error:
                 if response.error =="SMS Needed":
-                    pass:
+                    pass
                 else:
                     sys.stdout.write(colr.color(f"ERROR: {response.email} [{response.error}]\n",
                                             fore='red', style='bright'))
