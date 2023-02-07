@@ -1,5 +1,6 @@
 import itertools
 import json
+import time
 import multiprocessing
 import sys
 import threading
@@ -9,8 +10,9 @@ from tasks.outlook import OutlookAccount, OutlookResponse
 
 config: dict = json.load(open("config.json"))
 proxy_iter: iter = itertools.cycle(open("proxies.txt", 'r').read().splitlines())
-    
-sys.stdout.write(colr.color("""
+threads: str = config.get('threads')    
+processes: str = config.get('processes')    
+sys.stdout.write(colr.color(f"""
 ▓█████▄  ▒█████   ██▀███  ▄▄▄█████▓     ▄████ ▓█████  ███▄    █ 
 ▒██▀ ██▌▒██▒  ██▒▓██ ▒ ██▒▓  ██▒ ▓▒    ██▒ ▀█▒▓█   ▀  ██ ▀█   █ 
 ░██   █▌▒██░  ██▒▓██ ░▄█ ▒▒ ▓██░ ▒░   ▒██░▄▄▄░▒███   ▓██  ▀█ ██▒
@@ -21,9 +23,10 @@ sys.stdout.write(colr.color("""
  ░ ░  ░ ░ ░ ░ ▒    ░░   ░   ░         ░ ░   ░    ░      ░   ░ ░ 
    ░        ░ ░     ░                       ░    ░  ░         ░ 
  ░ 
- 
-Credits Qoft, Dort ,FreeMoneyHub
+Threads : {threads}, Processes {processes}
+Credits Qoft, Dort, FreeMoneyHub
 """,fore='red', style='bright'))
+time.sleep(2)
 
 def thread_fn():
     while True:
